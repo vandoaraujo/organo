@@ -8,7 +8,7 @@ const Time = ({time, colaboradores, aoDeletar, mudarCorDoTime}) => {
     colaboradores.length > 0 && (
       <section className="time" style={css}>
         <input
-          onChange={evento => mudarCorDoTime(evento.target.value, time.nome)}
+          onChange={evento => mudarCorDoTime(evento.target.value, time.id)}
           value={time.corPrimaria}
           type='color'
           className="input-cor" />
