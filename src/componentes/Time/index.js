@@ -18,9 +18,7 @@ const Time = ({time, colaboradores, aoDeletar, mudarCorDoTime}) => {
               <Colaborador
                 key={colaborador.nome}
                 corDeFundo={time.corPrimaria}
-                nome={colaborador.nome}
-                cargo={colaborador.cargo}
-                imagem={colaborador.imagem}
+                colaborador={colaborador}
                 aoDeletar={aoDeletar}
               />
           ))}

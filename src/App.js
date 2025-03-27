@@ -57,8 +57,9 @@ function App() {
     setColaboradores([...colaboradores, colaborador]);
   };
 
-  function deletarColaborador() {
-    console.log("deletando colaborador");
+  function deletarColaborador(id) {
+    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id ))
+    console.log("deletando colaborador: ", id);
   }
 
   function mudarCorDoTime(cor, identificador) {
@@ -85,7 +86,7 @@ function App() {
         {times.map((time, indice) => (
           <Time
             mudarCorDoTime={mudarCorDoTime}
-            key={indice}
+            key={uuidv4()}
             time={time}
             aoDeletar={deletarColaborador}
             colaboradores={colaboradores.filter(
