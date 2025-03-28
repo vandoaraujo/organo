@@ -57,6 +57,10 @@ function App() {
     setColaboradores([...colaboradores, colaborador]);
   };
 
+  function cadastrarTime(novoTime) {
+    setTimes([...times, {...novoTime, id: uuidv4() }]);
+  };
+
   function deletarColaborador(id) {
     setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id ))
     console.log("deletando colaborador: ", id);
@@ -76,6 +80,7 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario
+        cadastrarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
         aoColaboradorCadastrado={(colaborador) =>
           aoNovoColaboradorAdicionado(colaborador)
