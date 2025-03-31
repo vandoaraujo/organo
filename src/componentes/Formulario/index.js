@@ -10,6 +10,7 @@ const Formulario = (props) => {
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const [favorito, setFavorito] = useState('')
     
     const [nomeTime, setNomeTime] = useState('')
     const [corTime, setCorTime] = useState('')
@@ -18,12 +19,13 @@ const Formulario = (props) => {
         evento.preventDefault()
         console.log('Form foi submetido =>', nome, cargo, imagem, time)
         props.aoColaboradorCadastrado({
-            nome, cargo, imagem, time
+            nome, cargo, imagem, time, favorito
         })
         setNome('')
         setCargo('')
         setImagem('')
         setTime('')
+        setFavorito('')
     }
 
     return (
@@ -65,7 +67,8 @@ const Formulario = (props) => {
             </form>
             <form className='formulario' onSubmit={(evento) => {
                 evento.preventDefault()
-                props.cadastrarTime({ nome: nomeTime, corPrimaria: corTime, corSecundaria: '#ffffff'})
+                props.cadastrarTime({ nome: nomeTime, corPrimaria: corTime, 
+                    corSecundaria: '#ffffff'})
             } }>
                 <h2>Preencha os dados para criar um novo time.</h2>
                 <Campo

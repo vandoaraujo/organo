@@ -76,6 +76,13 @@ function App() {
       }));
   }
 
+  function resolverFavorito(id) {
+    setColaboradores(colaboradores.map(colaborador => {
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito;
+      return colaborador;
+    }))
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -94,6 +101,7 @@ function App() {
             key={uuidv4()}
             time={time}
             aoDeletar={deletarColaborador}
+            aoFavoritar={resolverFavorito}
             colaboradores={colaboradores.filter(
               (colaborador) => colaborador.time === time.nome
             )}
